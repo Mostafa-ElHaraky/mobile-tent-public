@@ -56,7 +56,7 @@ Client Devices (Desktop/Tablet/Mobile)
          ↓
     Next.js (Port 3000) ←→ 1C-Bitrix API (REST)
          ↓                         ↓
-    Static Files              CMS (cms.domain.ru)
+    Static Files              CMS
     (Images, CSS, JS)         (IP-restricted)
 ```
 
@@ -65,7 +65,7 @@ Client Devices (Desktop/Tablet/Mobile)
 | Subdomain              | Purpose                           | Access              |
 |------------------------|-----------------------------------|---------------------|
 | `mobile-tent.ru`       | Public frontend (Next.js)         | Public              |
-| `cms.mobile-tent.ru`   | Admin panel & API (1C-Bitrix)     | IP whitelist only   |
+| `cms`                  | Admin panel & API (1C-Bitrix)     | IP whitelist only   |
 
 All non-API requests to the CMS subdomain are redirected to the main site.
 
@@ -146,53 +146,6 @@ npm run build
 npm run start
 ```
 
-### Update Deployment
-
-**On local machine:**
-
-```bash
-# Create update archive
-tar --exclude='node_modules' --exclude='.git' --exclude='*.tar.gz' \
-    -czf mobile-tent-update.tar.gz .next src package.json \
-    package-lock.json next.config.mjs public
-
-# Upload to server
-scp -P [SSH_PORT] mobile-tent-update.tar.gz [USER]@[DOMAIN]:/tmp/
-```
-
-**On server:**
-
-```bash
-# Backup current version
-mv .next .next-backup-$(date +%Y%Y%m%d-%H%M%S)
-mv src src-backup-$(date +%Y%Y%m%d-%H%M%S)
-
-# Extract update
-sudo tar xzf /tmp/mobile-tent-update.tar.gz -C /var/www/mobile-tent.ru
-
-# Set permissions
-sudo chown -R [USER]:www-data .next src public
-sudo chmod -R 750 .next src public
-
-# Install dependencies (if package.json changed)
-npm install --omit=dev
-
-# Restart application
-pm2 restart mobile-tent
-```
-
----
-
-## Important Server Directories
-
-```
-/var/www/mobile-tent.ru     # Main application (Next.js)
-/var/www/bitrix-cms         # 1C-Bitrix CMS (headless backend)
-/home/[USER]                # User home directory
-```
-
----
-
 ## SEO & AI Optimization
 
 The project is optimized for:
@@ -208,23 +161,23 @@ The project is optimized for:
 ## Testing Results
 
 ### SEO Testing
-- ✅ All 480+ pages have unique meta tags (imported from legacy site)
-- ✅ URL structure fully preserved (no 404 errors)
-- ✅ 301 redirects configured for changed URLs
-- ✅ Structured data validated and working
-- ✅ 98% of pages indexed within 48 hours
+- All 480+ pages have unique meta tags (imported from legacy site)
+- URL structure fully preserved (no 404 errors)
+- 301 redirects configured for changed URLs
+- Structured data validated and working
+- 98% of pages indexed within 48 hours
 
 ### Performance Testing
-- ✅ Lighthouse scores: 94-98 (desktop), 85-90 (mobile)
-- ✅ Core Web Vitals passed
-- ✅ 5x faster than legacy Drupal site
+- Lighthouse scores: 94-98 (desktop), 85-90 (mobile)
+- Core Web Vitals passed
+- 5x faster than legacy Drupal site
 
 ### Security Testing
-- ✅ nftables firewall – only 3 visible ports (80, 443, 2222)
-- ✅ Fail2ban active – blocks suspicious IPs
-- ✅ Security headers present (HSTS, X-Frame-Options, etc.)
-- ✅ SSL Labs rating: **A+**
-- ✅ No SQL injection vulnerabilities detected
+- nftables firewall – only 3 visible ports (80, 443, 2222)
+- Fail2ban active – blocks suspicious IPs
+- Security headers present (HSTS, X-Frame-Options, etc.)
+- SSL Labs rating: **A+**
+- No SQL injection vulnerabilities detected
 
 ---
 
