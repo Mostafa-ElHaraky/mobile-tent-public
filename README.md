@@ -1,6 +1,3 @@
-Here's a complete, professional README for your Mobile Tent project in English, based on your thesis document but with all sensitive information removed:
-
-```markdown
 # Mobile Tent
 
 Modern e-commerce web application for Mobile Tent Company, built with Next.js React, TypeScript, and Tailwind CSS. The application is designed for showcasing and managing tent and canopy products with 3D visualization capabilities.
