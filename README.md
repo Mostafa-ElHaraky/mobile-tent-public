@@ -64,7 +64,7 @@ Client Devices (Desktop/Tablet/Mobile)
 
 | Subdomain              | Purpose                           | Access              |
 |------------------------|-----------------------------------|---------------------|
-| `mobile-tent.ru`       | Public frontend (Next.js)         | Public              |
+| `mobile-tent`       | Public frontend (Next.js)         | Public              |
 | `cms`                  | Admin panel & API (1C-Bitrix)     | IP whitelist only   |
 
 All non-API requests to the CMS subdomain are redirected to the main site.
