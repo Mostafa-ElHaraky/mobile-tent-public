@@ -38,7 +38,7 @@ The website features a product catalog with detailed product cards, adaptive des
 | **Styling**             | Tailwind CSS                                    |
 | **CMS (Headless)**      | 1С-Bitrix (REST API)                            |
 | **Web Server**          | Nginx (reverse proxy)                           |
-| **Hosting**             | VPS (8 CPU / 16 GB RAM / 220 GB NVMe)           |
+| **Hosting**             | VPS                                             |
 | **Security**            | ModSecurity (OWASP CRS), Fail2ban, iptables     |
 | **SSL**                 | Let's Encrypt (TLS 1.2 / 1.3)                   |
 | **Process Management**  | PM2                                             |
@@ -64,7 +64,7 @@ Client Devices (Desktop/Tablet/Mobile)
 
 | Subdomain              | Purpose                           | Access              |
 |------------------------|-----------------------------------|---------------------|
-| `mobile-tent`       | Public frontend (Next.js)         | Public              |
+| `mobile-tent`          | Public frontend (Next.js)         | Public              |
 | `cms`                  | Admin panel & API (1C-Bitrix)     | IP whitelist only   |
 
 All non-API requests to the CMS subdomain are redirected to the main site.
@@ -92,7 +92,7 @@ Multi-layer security implemented:
 
 | Layer              | Protection                                                |
 |--------------------|-----------------------------------------------------------|
-| **Network**        | Firewall with DROP policy (only ports 80, 443, 2222 open) |
+| **Network**        | Firewall with DROP policy                                 |
 | **Web Server**     | Security headers (HSTS, X-Frame-Options, X-XSS-Protection)|
 | **Application**    | ModSecurity WAF + OWASP Core Rule Set (planned activation)|
 | **System**         | Fail2ban (SSH, HTTP-auth, bot blocking)                   |
@@ -136,7 +136,7 @@ src/
 npm install
 
 # Build the project
-NODE_OPTIONS="--max-old-space-size=12288" npm run build
+npm run build
 
 # Start development server
 npm run dev
@@ -173,7 +173,7 @@ The project is optimized for:
 - 5x faster than legacy Drupal site
 
 ### Security Testing
-- nftables firewall – only 3 visible ports (80, 443, 2222)
+- nftables firewall 
 - Fail2ban active – blocks suspicious IPs
 - Security headers present (HSTS, X-Frame-Options, etc.)
 - SSL Labs rating: **A+**
@@ -195,9 +195,4 @@ The project is optimized for:
 
 ## License
 
-Private commercial project.
-
 All rights reserved © Mobile Tent
-```
-
-This README is ready for public use – all sensitive information (IP addresses, passwords, server paths with real usernames, specific domain details beyond the project name) has been removed or replaced with placeholders like `[DOMAIN]`, `[USER]`, `[SSH_PORT]`.
