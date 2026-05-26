@@ -1,0 +1,1 @@
+export { DivWrapperProizvodstvoshatrov } from "./DivWrapperProizvodstvoshatrov";

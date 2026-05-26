@@ -1,0 +1,1 @@
+export { FrameWrapperNew } from "./FrameWrapperNew";

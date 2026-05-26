@@ -1,0 +1,1 @@
+export { OverlapGroupWrapperProizvodstvoshatrov  } from "./OverlapGroupWrapperProizvodstvoshatrov";

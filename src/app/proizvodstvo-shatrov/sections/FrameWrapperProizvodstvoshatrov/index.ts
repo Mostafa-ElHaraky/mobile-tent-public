@@ -1,0 +1,1 @@
+export { FrameWrapperProizvodstvoshatrov  } from "./FrameWrapperProizvodstvoshatrov";

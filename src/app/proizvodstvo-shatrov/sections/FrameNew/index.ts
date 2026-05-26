@@ -1,0 +1,1 @@
+export { FrameNew } from "./FrameNew";

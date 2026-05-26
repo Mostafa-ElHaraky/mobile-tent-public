@@ -1,0 +1,13 @@
+User-agent: Yandex
+Clean-param: ybaip
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_type
+Clean-param: _openstat&gclid&yclid&ymclid&from&cid&frommarket
+Clean-param: question-1&question-2&question-3&yandex-source&yadclid&external_browser_redirect&stat-id&erid&phone&from&yadordid&erid&rs&amp&season&priceasc&etext&show_all&tpclid&rs_stat&_ga&
+Clean-param: yprqee
+Clean-param: yadiscount
+
+User-agent: GoogleBot
+
+User-agent:*
+
+Sitemap: https://mobile-tent.ru/sitemap.xml

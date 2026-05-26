@@ -1,0 +1,1 @@
+export { FrameProizvodstvoshatrov  } from "./FrameProizvodstvoshatrov";
